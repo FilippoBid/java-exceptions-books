@@ -63,24 +63,25 @@ public class Book {
     /*costrutt*/
     public Book(String title,String author,String publisher, int page) throws InvalidBookException {
 
-        if (title != null && author != null && publisher != null && page >= 0) {
+        if (!title.isEmpty() && !author.isEmpty() && !publisher.isEmpty() && page > 0) {
             this.title = title;
             this.author = author;
             this.publisher = publisher;
+
             this.page = page;
         } else {
-            throw new InvalidBookException("ahia inserisci correttamente i dati");
+            throw new InvalidBookException();
         }
 
     }
 
     @Override
     public String toString() {
-        return "Book{" +
-                "title='" + title + '\'' +
-                ", author='" + author + '\'' +
-                ", publisher='" + publisher + '\'' +
-                ", page=" + page +
-                '}';
+        return "Book:" +
+                "title='" + title + '\n' +
+                ", author='" + author + '\n' +
+                ", publisher='" + publisher + '\n' +
+                ", page=" + page + '\n'
+                ;
     }
 }
